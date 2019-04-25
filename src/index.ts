@@ -28,6 +28,28 @@ const extension: JupyterLabPlugin<void> = {
   widget.id = 'snippet';
   widget.title.label = 'snippet.com';
   widget.title.closable = true;
+  
+	// Add an image element to the panel
+	let texte = document.createElement('pre');
+	texte.setAttribute("style","word-wrap: break-word; white-space: pre-wrap;")
+	widget.node.appendChild(texte);
+
+	// Fetch info about a random comic
+	//fetch('https://raw.githubusercontent.com/mayeuldalzon/jupyterhub-quickstart/develop/scripts/backup-user-details.py').then(response => {
+	  //return response.text();
+	//}).then(data => {
+		//data= data.replace(/(?:\r\n|\r|\n)/g, '<br>');
+	  //let tx =document.createTextNode(data)
+	  //texte.appendChild(tx);
+ //Fetch info about a random comic
+	fetch('https://raw.githubusercontent.com/mayeuldalzon/jupyterhub-quickstart/develop/scripts/backup-user-details.py').then(response => {
+	  return response.text();
+	}).then(data => {
+		//data= data.replace(/(?:\r\n|\r|\n)/g, '<br>');
+	  let tx =document.createTextNode(data)
+	  texte.appendChild(tx);	  
+	});
+	
 
   // Add an application command
   const command: string = 'snippet:open';
