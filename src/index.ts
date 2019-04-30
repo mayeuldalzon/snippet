@@ -36,7 +36,7 @@ class snippetWidget extends Widget {
       this.node.appendChild(this.texte);
 
 	 //Fetch info about a random python file
-		fetch('https://raw.githubusercontent.com/mayeuldalzon/jupyterhub-quickstart/develop/scripts/backup-user-details.py').then(response => {
+		fetch('https://raw.githubusercontent.com/mayeuldalzon/snippet/master/script/unzip.py').then(response => {
 		  return response.text();
 		}).then(data => {
 		  this.tx =document.createTextNode(data)
